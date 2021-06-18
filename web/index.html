@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -11,11 +12,11 @@
     For more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
   -->
-  <base href="/">
+  <base href="/webapp/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="A webapp project.">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,10 +24,75 @@
   <meta name="apple-mobile-web-app-title" content="webapp">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
   <title>webapp</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
+  <style>
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%)
+    }
+
+    .spinner {
+      position: relative;
+      font-size: 80px;
+    }
+
+    .spinner:before,
+    .spinner:after {
+      content: "";
+      position: relative;
+      display: block;
+    }
+
+    .spinner:before {
+      animation: spinner 2.5s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+      width: 1em;
+      height: 1em;
+      background-color: #F07260;
+    }
+
+    .spinner:after {
+      animation: shadow 2.5s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+      bottom: -.5em;
+      height: .25em;
+      border-radius: 50%;
+      background-color: rgba(#000, 0.2);
+    }
+
+    @keyframes spinner {
+      50% {
+        border-radius: 50%;
+        transform: scale(0.5) rotate(360deg);
+      }
+
+      100% {
+        transform: scale(1) rotate(720deg);
+      }
+    }
+
+    @keyframes shadow {
+      50% {
+        transform: scale(0.5);
+        background-color: rgba(#000, 0.1);
+      }
+    }
+  </style>
+  <div id="spinner" class="center">
+    <span class="spinner"></span>
+  </div>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -95,4 +161,5 @@
     }
   </script>
 </body>
+
 </html>
