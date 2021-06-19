@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const app_title = 'flutter-web-application';
+
 void main() {
   runApp(MyApp());
 }
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'webapp',
+      title: app_title,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'webapp'),
+      home: MyHomePage(title: app_title),
     );
   }
 }
